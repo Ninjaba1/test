@@ -6,11 +6,11 @@
 
 body {
   font-family: sans-serif;
-  color: white;
   background-color: black;
+  color: pink;
 }
 
-.box {
+main {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -19,23 +19,53 @@ body {
   flex-direction: column;
 }
 
-.box-img {
-  width: 250px;
-  height: 250px;
+.image {
+  width: 200px;
   border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  z-index: 10;
+  background: white;
+}
+
+.image.active {
+  animation: rotate ease-in 3s infinite;
+}
+
+.title {
+  text-align: center;
+  transform: scale(0);
+  margin-bottom: 30px;
+}
+
+.title p {
   margin-bottom: 10px;
 }
 
-.box-img img {
-  max-height: 100%;
-  transform: scale(1.2);
-  transition: ease-out 0.2s;
+.title h2 {
+  font-size: 30px;
 }
 
-.box-img:hover img{
+.title.active {
+  animation: show ease-in 3s infinite;
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  50% {
     transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
